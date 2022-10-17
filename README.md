@@ -1,15 +1,3 @@
+# Welcome to TestNG Repository
 
-
-# Welcome to Fibonacci Repository
-
-### You find in this repo the following stuff:
-
-* 
-* 
-* 
-* ....
-
-
-#### Conect me via ngusimeri@gmail.com
-
-#### Copyright &#169; 2022 hoang-n-d
+[![CI with GitHub Actions using Maven and TestNG | © 2022](https://github.com/trichoip/swt301-testing-testng/actions/workflows/ci-maven-webapp.yml/badge.svg)](https://github.com/trichoip/swt301-testing-testng/actions/workflows/ci-maven-webapp.yml)
