@@ -19,21 +19,21 @@ import javax.naming.NamingException;
  */
 public class UserDAO {
 
-    private static final String LOGIN = "SELECT fullName,roleID FROM tblUsers WHERE userID = ? AND password = ?";
+    private static final String LOGIN = "SELECT fullName,roleID,password FROM tblUsers WHERE userID = ? AND password = ?";
     private static final String SEARCH = "SELECT userID,fullName,roleID,status FROM tblUsers WHERE fullName like ?";
     private static final String DELETE = "UPDATE tblUsers SET status = 0 WHERE userID = ?";
     private static final String UPDATE = "UPDATE tblUsers SET fullName = ?, roleID=? WHERE userID = ?";
     private static final String CHECK_ID = "SELECT userID FROM tblUsers WHERE userID = ?";
     private static final String INSERT = "INSERT INTO tblUsers(userID, fullName, roleID, password, status) VALUES(?,?,?,?,?)";
 
-    public UserDTO checkLogin(String userID, String password) throws SQLException {
+    public static UserDTO checkLogin(String userID, String password) throws SQLException {
         UserDTO user = null;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(LOGIN);
                 ps.setString(1, userID);
@@ -42,7 +42,8 @@ public class UserDAO {
                 if (rs.next()) {
                     String fullName = rs.getString("fullName");
                     String roleID = rs.getString("roleID");
-                    user = new UserDTO(userID, fullName, "***", roleID, true);
+                    String password1 = rs.getString("password");
+                    user = new UserDTO(userID, fullName, password1, roleID, true);
                 }
             }
 
@@ -64,14 +65,14 @@ public class UserDAO {
         return user;
     }
 
-    public List<UserDTO> getListUser(String search) throws SQLException {
+    public static List<UserDTO> getListUser(String search) throws SQLException {
         List<UserDTO> listUser = new ArrayList<>();
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(SEARCH);
                 ps.setString(1, "%" + search + "%");
@@ -105,12 +106,12 @@ public class UserDAO {
 
     }
 
-    public boolean delete(String userID) throws SQLException {
+    public static boolean delete(String userID) throws SQLException {
         boolean result = false;
         Connection con = null;
         PreparedStatement ps = null;
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(DELETE);
                 ps.setString(1, userID);
@@ -131,12 +132,12 @@ public class UserDAO {
         return result;
     }
 
-    public boolean update(UserDTO user) throws SQLException {
+    public static boolean update(UserDTO user) throws SQLException {
         boolean check = false;
         Connection con = null;
         PreparedStatement ps = null;
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(UPDATE);
                 ps.setString(1, user.getFullName());
@@ -159,14 +160,14 @@ public class UserDAO {
         return check;
     }
 
-    public boolean checkID(String userID) throws SQLException {
+    public static boolean checkID(String userID) throws SQLException {
         boolean check = false;
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(CHECK_ID);
                 ps.setString(1, userID);
@@ -193,12 +194,12 @@ public class UserDAO {
         return check;
     }
 
-    public boolean insert(UserDTO user) throws SQLException {
+    public static boolean insert(UserDTO user) throws SQLException {
         boolean check = false;
         Connection con = null;
         PreparedStatement ps = null;
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(INSERT);
                 ps.setString(1, user.getUserID());
@@ -222,13 +223,13 @@ public class UserDAO {
 
         return check;
     }
-    
-    public boolean insertV2(UserDTO user) throws SQLException, ClassNotFoundException, NamingException {
+
+    public static boolean insertV2(UserDTO user) throws SQLException, ClassNotFoundException, NamingException {
         boolean check = false;
         Connection con = null;
         PreparedStatement ps = null;
         try {
-            con = DBUtils.makeConnectionV2();
+            con = DBUtils.makeConnection();
             if (con != null) {
                 ps = con.prepareStatement(INSERT);
                 ps.setString(1, user.getUserID());
@@ -239,7 +240,7 @@ public class UserDAO {
                 check = ps.executeUpdate() > 0 ? true : false;
             }
 
-        }finally {
+        } finally {
             if (ps != null) {
                 ps.close();
             }

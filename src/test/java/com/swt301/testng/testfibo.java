@@ -10,7 +10,6 @@ public class testfibo {
     @Test
     public void test() {
         Assert.assertEquals(55, FibonacciExample.fibonacci(10));
-        Assert.assertEquals(true, true);
     }
 
 }

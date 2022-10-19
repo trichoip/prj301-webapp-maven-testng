@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/DeleteServlet" })
+@WebServlet(urlPatterns = { "/DeleteServlet" })
 public class DeleteServlet extends HttpServlet {
 
     private static final String ERROR = "SearchServlet";

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = {"/CreateServlet"})
+@WebServlet(urlPatterns = { "/CreateServlet" })
 public class CreateServlet extends HttpServlet {
 
     private static final String ERROR = "createUser.jsp";

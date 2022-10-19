@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/SearchServlet" })
+@WebServlet(urlPatterns = { "/SearchServlet" })
 public class SearchServlet extends HttpServlet {
 
     private static final String ERROR = "admin.jsp";

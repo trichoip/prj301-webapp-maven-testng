@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/LoginServlet" })
+@WebServlet(urlPatterns = { "/LoginServlet" })
 public class LoginServlet extends HttpServlet {
 
     private static final String ERROR = "login.jsp";

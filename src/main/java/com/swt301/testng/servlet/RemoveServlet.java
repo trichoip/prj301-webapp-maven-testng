@@ -17,7 +17,7 @@ import javax.servlet.annotation.WebServlet;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/RemoveServlet" })
+@WebServlet(urlPatterns = { "/RemoveServlet" })
 public class RemoveServlet extends HttpServlet {
 
     private static final String ERROR = "error.jsp";

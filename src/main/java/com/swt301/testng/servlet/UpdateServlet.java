@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/UpdateServlet" })
+@WebServlet(urlPatterns = { "/UpdateServlet" })
 public class UpdateServlet extends HttpServlet {
 
     private static final String ERROR = "SearchServlet";

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/AddServlet" })
+@WebServlet(urlPatterns = { "/AddServlet" })
 public class AddServlet extends HttpServlet {
 
     private static final String ERROR = "error.jsp";

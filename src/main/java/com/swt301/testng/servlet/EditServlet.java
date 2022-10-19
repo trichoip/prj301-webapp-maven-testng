@@ -18,7 +18,7 @@ import javax.servlet.annotation.WebServlet;
  *
  * @author minh tri
  */
- @WebServlet(urlPatterns = { "/EditServlet" })
+@WebServlet(urlPatterns = { "/EditServlet" })
 public class EditServlet extends HttpServlet {
 
     private static final String ERROR = "error.jsp";

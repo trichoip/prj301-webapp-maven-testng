@@ -17,7 +17,7 @@ public class UserDTO {
     private boolean status;
 
     public UserDTO() {
-        
+
     }
 
     public UserDTO(String userID, String fullName, String password, String roleID, boolean status) {
@@ -26,6 +26,11 @@ public class UserDTO {
         this.password = password;
         this.roleID = roleID;
         this.status = status;
+    }
+
+    public UserDTO(String userID, String fullName) {
+        this.userID = userID;
+        this.fullName = fullName;
     }
 
     public String getUserID() {
@@ -66,6 +71,11 @@ public class UserDTO {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return userID + " " + fullName;
     }
 
 }
