@@ -1,0 +1,74 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="swt301-testNG-testsuite" verbose="2" annotations="JDK">
+    <!-- ======================================================================================= -->
+    <!-- test package -->
+
+    <!-- <test name="a-t1" preserve-order="true">
+        <packages>
+            <package name="com.swt301.testng"></package>
+        </packages>
+    </test> -->
+    <!-- ======================================================================================= -->
+
+    <!-- <test name="a-t2" preserve-order="true">
+         <classes>
+            <class name="com.swt301.testng.beforeafter.BeforeAfterSuite" />
+            <class name="com.swt301.testng.beforeafter.BeforeAfterClassTest" />
+            <class name="com.swt301.testng.beforeafter.BeforeAfterMethodTest" />
+        </classes> 
+    </test> -->
+    <!-- ======================================================================================= -->
+    <!-- group test -->
+
+    <!-- <test name="Test-group">
+        <groups>
+            <run>
+                <include name="functest"></include>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.swt301.testng.group.PriorityGroup"></class>
+        </classes>
+    </test> -->
+
+    <!-- test regix -->
+
+    <!-- <test name="Test-group">
+        <groups>
+            <run>
+                <include name="windown.*" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.swt301.testng.group.PriorityGroup" />
+        </classes>
+    </test> -->
+    <!-- ======================================================================================= -->
+    <!-- test paramiter -->
+    <!-- <test name="test paramiter">
+        <parameter name="datasource" value="jdbc"></parameter>
+        <parameter name="jdbcDriver" value="driver"></parameter>
+        <parameter name="first-name" value="admin"></parameter>
+        <classes>
+            <class name="com.swt301.testng.paramiter.ParamiterTest"></class>
+        </classes>
+    </test> -->
+
+    <!-- test  listeners-->
+    <!--    <listeners>
+        <listener class-name="com.swt301.testng.listener.InvokedMethodListener"></listener>
+    </listeners>
+    <test name="test listeners">
+        <classes>
+            <class name="com.swt301.testng.listener.TestListeners"></class>
+            <class name="com.swt301.testng.retry.TestclassRetry"></class>
+        </classes>
+    </test>-->
+
+
+    <test name="testall">
+        <packages>
+            <package name="com.swt301.testng.*"></package>
+        </packages>
+    </test>
+</suite>
